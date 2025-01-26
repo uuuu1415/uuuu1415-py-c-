@@ -3,7 +3,9 @@
         {
             "name": "Win32",
             "includePath": [
-                "${workspaceFolder}/**"
+                "${workspaceFolder}/**",
+                "D:/cc++add/freeglut-3.6.0/include",
+                "D:\\cc++add\\glfw-3.4.bin.WIN64\\include"
             ],
             "defines": [
                 "_DEBUG",

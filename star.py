@@ -1,29 +1,36 @@
 import turtle
 
-# Set up the screen
-wn = turtle.Screen()
-wn.bgcolor("black")
+def setup_screen():
+    screen = turtle.Screen()
+    screen.bgcolor("black")
+    return screen
 
-# Create a turtle named "star"
-star = turtle.Turtle()
-star.color("yellow")
-star.speed(10)
+def create_star_turtle():
+    star_turtle = turtle.Turtle()
+    star_turtle.color("yellow")
+    star_turtle.speed(10)
+    return star_turtle
 
-# Function to draw a star
-def draw_star(size):
+def draw_star(turtle, size):
     for _ in range(5):
-        star.forward(size)
-        star.right(144)
-        star.forward(size)
-        star.left(72)
+        turtle.forward(size)
+        turtle.right(144)
 
-# Draw multiple stars
-for size in range(30, 300, 30):
-    draw_star(size)
-    star.penup()
-    star.goto(-size/3, -size/3)
-    star.pendown()
+def draw_multiple_stars(turtle, start_size=30, end_size=300, step_size=30):
+    turtle.clear()
+    for size in range(start_size, end_size, step_size):
+        draw_star(turtle, size)
+        turtle.penup()
+        turtle.goto(-size / 2, -size / 2)
+        turtle.pendown()
 
-# Hide the turtle and display the window
-star.hideturtle()
-wn.mainloop()
+def main():
+    screen = setup_screen()
+    star_turtle = create_star_turtle()
+    # Hide the turtle after drawing all stars
+    star_turtle.hideturtle()
+    star_turtle.hideturtle()
+    screen.mainloop()
+
+if __name__ == "__main__":
+    main()
